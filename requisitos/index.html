@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Requisitos por Trámite</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+    }
+    select {
+      display: block;
+      margin: 20px auto;
+      padding: 10px;
+      font-size: 16px;
+    }
+    .requisitos {
+      display: none;
+      margin: 20px auto;
+      max-width: 600px;
+      background-color: #f9f9f9;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .requisitos ul {
+      padding-left: 20px;
+    }
+    .volver {
+      display: block;
+      margin: 30px auto;
+      text-align: center;
+    }
+    .volver a {
+      text-decoration: none;
+      color: #fff;
+      background-color: #007BFF;
+      padding: 10px 20px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Requisitos por Trámite</h1>
+
+  <label for="tramite">Selecciona un trámite:</label>
+  <select id="tramite" onchange="mostrarRequisitos()">
+    <option value="">-- Selecciona uno --</option>
+    <option value="nacimiento">Acta de Nacimiento</option>
+    <option value="matrimonio">Acta de Matrimonio</option>
+    <option value="defuncion">Acta de Defunción</option>
+    <option value="reconocimiento">Reconocimiento de Hijo</option>
+    <option value="solicitud">Solicitud de Actas</option>
+    <option value="divorcio">Divorcio</option>
+    <option value="cambio">Cambio de Nombre</option>
+  </select>
+
+  <div id="nacimiento" class="requisitos">
+    <h3>Acta de Nacimiento</h3>
+    <ul>
+      <li>Identificación oficial del solicitante</li>
+      <li>CURP del registrado</li>
+      <li>Comprobante de domicilio</li>
+    </ul>
+  </div>
+
+  <div id="matrimonio" class="requisitos">
+    <h3>Acta de Matrimonio</h3>
+    <ul>
+      <li>Identificaciones oficiales de los contrayentes</li>
+      <li>CURP de ambos</li>
+      <li>Comprobante de domicilio</li>
+    </ul>
+  </div>
+
+  <div id="defuncion" class="requisitos">
+    <h3>Acta de Defunción</h3>
+    <ul>
+      <li>Certificado médico de defunción</li>
+      <li>Identificación oficial del reportante</li>
+      <li>CURP del fallecido</li>
+    </ul>
+  </div>
+
+  <div id="reconocimiento" class="requisitos">
+    <h3>Reconocimiento de Hijo</h3>
+    <ul>
+      <li>Identificación del padre/madre que reconoce</li>
+      <li>Acta de nacimiento del menor</li>
+      <li>Presencia de ambos padres</li>
+    </ul>
+  </div>
+
+  <div id="solicitud" class="requisitos">
+    <h3>Solicitud de Actas</h3>
+    <ul>
+      <li>CURP del interesado</li>
+      <li>Nombre completo y fecha de nacimiento</li>
+    </ul>
+  </div>
+
+  <div id="divorcio" class="requisitos">
+    <h3>Divorcio</h3>
+    <ul>
+      <li>Acta de matrimonio</li>
+      <li>Identificaciones oficiales</li>
+      <li>Resolución judicial</li>
+    </ul>
+  </div>
+
+  <div id="cambio" class="requisitos">
+    <h3>Cambio de Nombre</h3>
+    <ul>
+      <li>Acta de nacimiento original</li>
+      <li>Motivo legal del cambio</li>
+      <li>Identificación oficial</li>
+    </ul>
+  </div>
+
+  <div class="volver">
+    <a href="../index.html">Volver al Inicio</a>
+  </div>
+
+  <script>
+    function mostrarRequisitos() {
+      const seleccion = document.getElementById("tramite").value;
+      const requisitos = document.querySelectorAll(".requisitos");
+
+      requisitos.forEach(div => {
+        div.style.display = "none";
+      });
+
+      if (seleccion) {
+        document.getElementById(seleccion).style.display = "block";
+      }
+    }
+  </script>
+</body>
+</html>
